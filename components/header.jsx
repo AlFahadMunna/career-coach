@@ -29,7 +29,7 @@ const Header = () => {
             <Link href="/dashboardq">
               <Button>
                 <LayoutDashboard className="h-4 w-4" />
-                Industry insights
+                <span className="hidden md:block">Industry insights</span>
               </Button>
             </Link>
           </SignedIn>
