@@ -26,12 +26,12 @@ export async function updateUser(data) {
           industryInsight = await tx.industryInsight.create({
             data: {
               industry: data.industry,
-              salaryRange: [],
+              salaryRanges: [],
               growthRate: 0,
-              demandLevel: "Medium",
+              demandLevel: "MEDIUM",
               topSkills: [],
-              markerOutlook: "Natural",
-              ketTrends: [],
+              marketOutlook: "NEUTRAL",
+              keyTrends: [],
               recommendedSkills: [],
               nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
             },
@@ -43,7 +43,7 @@ export async function updateUser(data) {
           },
           data: {
             industry: data.industry,
-            experience: date.experience,
+            experience: data.experience,
             bio: data.bio,
             skills: data.skills,
           },
@@ -54,10 +54,10 @@ export async function updateUser(data) {
         timeout: 10000,
       }
     );
-    return result.user;
+    return { success: true, ...result };
   } catch (error) {
     console.error("Error updating user and industry:", error.message);
-    throw new Error("Failed to update profile");
+    throw new Error("Failed to update profile" + error.message);
   }
 }
 
