@@ -39,7 +39,7 @@ model Assessment {
   questions      Json[]
   category       String
   improvementTip String?
-  createdA       DateTime @default(now())
+  createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 
   @@index([userId])
